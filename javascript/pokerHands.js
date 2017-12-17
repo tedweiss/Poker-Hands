@@ -9,3 +9,8 @@ makeCardDeck = () => {
   })
   return deck
 }
+Card = card => {
+  let cardArray = card.split('')
+  let suit = cardArray[1]
+  return suit
+}
