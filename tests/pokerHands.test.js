@@ -18,3 +18,15 @@ describe('Handling cards', function () {
     expect(Card('KC').value).toBe(13)
   })
 })
+
+describe('Different Poker hands', function () {
+  it('should find the high card', function () {
+    let card1 = Card('2C')
+    let card2 = Card('3H')
+    let card3 = Card('5H')
+    let card4 = Card('TS')
+    let card5 = Card('KD')
+    let hand = [card1, card2, card3, card4, card5]
+    expect(findHighCard(hand)).toBe('KD')
+  })
+})
