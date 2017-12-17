@@ -24,7 +24,19 @@ Card = card => {
     value = faceValues[cardArray[0]]
   }
   return {
+    name: card,
     suit: suit,
     value: value
   }
+}
+
+// Poker Hands
+findHighCard = hand => {
+  let highCard = {value: 0}
+  hand.forEach(card => {
+    if (card.value > highCard.value) {
+      highCard = card
+    }
+  })
+  return highCard.name
 }
