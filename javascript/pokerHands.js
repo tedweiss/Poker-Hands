@@ -13,6 +13,9 @@ Card = card => {
   let cardArray = card.split('')
   let suit = cardArray[1]
   let value = parseInt(cardArray[0])
+  if (isNaN(value)) {
+    value = 10
+  }
   return {
     suit: suit,
     value: value
