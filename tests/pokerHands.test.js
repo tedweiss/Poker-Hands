@@ -15,6 +15,6 @@ describe('Handling cards', function () {
     expect(Card('QC').value).toBe(12)
   })
   it("should find any card's face value", function () {
-    expect(findCardFaceValue('K')).toBe(13)
+    expect(Card('KC').value).toBe(13)
   })
 })

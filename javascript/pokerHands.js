@@ -14,24 +14,17 @@ Card = card => {
   let suit = cardArray[1]
   let value = parseInt(cardArray[0])
   if (isNaN(value)) {
-    if (cardArray[0] === 'Q') {
-      value = 12
-    } else {
-      value = 10
+    let faceValues = {
+      T: 10,
+      J: 11,
+      Q: 12,
+      K: 13,
+      A: 14
     }
+    value = faceValues[cardArray[0]]
   }
   return {
     suit: suit,
     value: value
   }
-}
-findCardFaceValue = face => {
-  let faceValues = {
-    T: 10,
-    J: 11,
-    Q: 12,
-    K: 13,
-    A: 14
-  }
-  return faceValues[face]
 }
