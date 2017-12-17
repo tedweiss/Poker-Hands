@@ -8,4 +8,7 @@ describe('Handling cards', function () {
   it("should tell a card's value", function () {
     expect(Card('2C').value).toBe(2)
   })
+  it("should tell a card's face value", function () {
+    expect(Card('TC').value).toBe(10)
+  })
 })
