@@ -12,5 +12,9 @@ makeCardDeck = () => {
 Card = card => {
   let cardArray = card.split('')
   let suit = cardArray[1]
-  return suit
+  let value = parseInt(cardArray[0])
+  return {
+    suit: suit,
+    value: value
+  }
 }
