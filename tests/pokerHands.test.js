@@ -29,13 +29,17 @@ describe('Different Poker hands', function () {
     let hand = [card1, card2, card3, card4, card5]
     expect(findHighCard(hand)).toBe('KD')
   })
+
+  // Pair Hand tests
+  // Sample hand for Pair Hand
+  let pairCard1 = Card('TS')
+  let pairCard2 = Card('7H')
+  let pairCard3 = Card('3D')
+  let pairCard4 = Card('7S')
+  let pairCard5 = Card('JC')
+  let pairHand = [pairCard1, pairCard2, pairCard3, pairCard4, pairCard5]
+
   it('should determine if the hand has a pair', function () {
-    let card1 = Card('TS')
-    let card2 = Card('7H')
-    let card3 = Card('3D')
-    let card4 = Card('7S')
-    let card5 = Card('JC')
-    let hand = [card1, card2, card3, card4, card5]
-    expect(determinePair(hand)).toBe(true)
+    expect(determinePair(pairHand)).toBe(true)
   })
 })
