@@ -43,15 +43,20 @@ findHighCard = hand => {
 
 determinePair = hand => {
   let pair = false
-  let pairValue = 0
+  let pairValueCheck = 0
+  let pairValue
   hand = hand.sort((a, b) => {
     return a.value - b.value
   })
   hand.map(card => {
-    if (card.value === pairValue) {
+    if (card.value === pairValueCheck) {
       pair = true
+      pairValue = card.value
     }
-    pairValue = card.value
+    pairValueCheck = card.value
   })
-  return pair
+  return {
+    pair: pair,
+    value: pairValue
+  }
 }
