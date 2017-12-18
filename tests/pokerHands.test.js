@@ -29,4 +29,13 @@ describe('Different Poker hands', function () {
     let hand = [card1, card2, card3, card4, card5]
     expect(findHighCard(hand)).toBe('KD')
   })
+  it('should determine if the hand has a pair', function () {
+    let card1 = Card('TS')
+    let card2 = Card('7H')
+    let card3 = Card('3D')
+    let card4 = Card('7S')
+    let card5 = Card('JC')
+    let hand = [card1, card2, card3, card4, card5]
+    expect(determinePair(hand)).toBe(true)
+  })
 })
