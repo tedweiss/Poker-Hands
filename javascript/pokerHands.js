@@ -32,11 +32,26 @@ Card = card => {
 
 // Poker Hands
 findHighCard = hand => {
-  let highCard = {value: 0}
+  let highCard = { value: 0 }
   hand.forEach(card => {
     if (card.value > highCard.value) {
       highCard = card
     }
   })
   return highCard.name
+}
+
+determinePair = hand => {
+  let pair = false
+  let pairValue = 0
+  hand = hand.sort((a, b) => {
+    return a.value - b.value
+  })
+  hand.map(card => {
+    if (card.value === pairValue) {
+      pair = true
+    }
+    pairValue = card.value
+  })
+  return pair
 }
