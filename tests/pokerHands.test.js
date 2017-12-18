@@ -40,6 +40,9 @@ describe('Different Poker hands', function () {
   let pairHand = [pairCard1, pairCard2, pairCard3, pairCard4, pairCard5]
 
   it('should determine if the hand has a pair', function () {
-    expect(determinePair(pairHand)).toBe(true)
+    expect(determinePair(pairHand).pair).toBe(true)
+  })
+  it('should state the value of the pair', function () {
+    expect(determinePair(pairHand).value).toBe(7)
   })
 })
