@@ -1,4 +1,4 @@
-makeCardDeck = () => {
+const makeCardDeck = () => {
   let deck = []
   let suits = ['C', 'D', 'H', 'S']
   let values = ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A']
@@ -9,7 +9,7 @@ makeCardDeck = () => {
   })
   return deck
 }
-Card = card => {
+const Card = card => {
   let cardArray = card.split('')
   let suit = cardArray[1]
   let value = parseInt(cardArray[0])
@@ -31,7 +31,7 @@ Card = card => {
 }
 
 // Poker Hands
-findHighCard = hand => {
+const findHighCard = hand => {
   let highCard = { value: 0 }
   hand.forEach(card => {
     if (card.value > highCard.value) {
@@ -41,7 +41,7 @@ findHighCard = hand => {
   return highCard.name
 }
 
-determinePair = hand => {
+const determinePair = hand => {
   let pair = false
   let pairValueCheck = 0
   let pairValue
@@ -68,12 +68,12 @@ determinePair = hand => {
   }
 }
 
-determineTwoPairs = hand => {
+const determineTwoPairs = hand => {
   let twoPairs = false
   let newHand = []
-  if (this.determinePair(hand).pair) {
-    newHand = this.determinePair(hand).remaining
-    if (this.determinePair(newHand).pair) {
+  if (determinePair(hand).pair) {
+    newHand = determinePair(hand).remaining
+    if (determinePair(newHand).pair) {
       twoPairs = true
     }
   }
