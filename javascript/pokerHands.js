@@ -45,6 +45,7 @@ determinePair = hand => {
   let pair = false
   let pairValueCheck = 0
   let pairValue
+  let remainingCards = []
   hand = hand.sort((a, b) => {
     return a.value - b.value
   })
@@ -55,8 +56,14 @@ determinePair = hand => {
     }
     pairValueCheck = card.value
   })
+  hand.map(card => {
+    if (card.value !== pairValue) {
+      remainingCards.push(card)
+    }
+  })
   return {
     pair: pair,
-    value: pairValue
+    value: pairValue,
+    remaining: remainingCards
   }
 }
