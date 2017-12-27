@@ -67,4 +67,17 @@ describe('Different Poker hands', function () {
   it('should return the remaining card from the 2 pairs', function () {
     expect(determineTwoPairs(twoPairsHand).remaining).toEqual([twoPairsCard4])
   })
+
+  // Three of a Kind Hand tests
+  // Sample hand for Three of a Kind Hand
+  let threeKindCard1 = Card('QS')
+  let threeKindCard2 = Card('QH')
+  let threeKindCard3 = Card('3D')
+  let threeKindCard4 = Card('QC')
+  let threeKindCard5 = Card('JC')
+  let threeKindHand = [threeKindCard1, threeKindCard2, threeKindCard3, threeKindCard4, threeKindCard5]
+
+  it('should determine if the hand has three of a kind', function () {
+    expect(determineThreeKind(threeKindHand).threeKind).toBe(true)
+  })
 })
