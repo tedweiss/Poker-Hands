@@ -72,6 +72,7 @@ const determineTwoPairs = hand => {
   let twoPairs = false
   let values = []
   let newHand = []
+  let remainingCards = []
   if (determinePair(hand).pair) {
     values.push(determinePair(hand).value)
     newHand = determinePair(hand).remaining
@@ -79,9 +80,15 @@ const determineTwoPairs = hand => {
       values.push(determinePair(newHand).value)
       twoPairs = true
     }
-  }
-  return {
-    twoPairs: twoPairs,
-    values: values
+    hand.map(card => {
+      if (card.value !== values[0] && card.value !== values[1]) {
+        remainingCards.push(card)
+      }
+    })
+    return {
+      twoPairs: twoPairs,
+      values: values,
+      remaining: remainingCards
+    }
   }
 }
