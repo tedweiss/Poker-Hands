@@ -67,3 +67,17 @@ determinePair = hand => {
     remaining: remainingCards
   }
 }
+
+determineTwoPairs = hand => {
+  let twoPairs = false
+  let newHand = []
+  if (this.determinePair(hand).pair) {
+    newHand = this.determinePair(hand).remaining
+    if (this.determinePair(newHand).pair) {
+      twoPairs = true
+    }
+  }
+  return {
+    twoPairs: twoPairs
+  }
+}
