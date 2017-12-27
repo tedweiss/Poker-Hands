@@ -61,4 +61,7 @@ describe('Different Poker hands', function () {
   it('should determine if the hand has 2 pairs', function () {
     expect(determineTwoPairs(twoPairsHand).twoPairs).toBe(true)
   })
+  it('should state the values of the 2 pairs', function () {
+    expect(determineTwoPairs(twoPairsHand).values).toBe(true)
+  })
 })
