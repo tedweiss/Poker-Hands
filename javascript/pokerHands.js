@@ -70,14 +70,18 @@ const determinePair = hand => {
 
 const determineTwoPairs = hand => {
   let twoPairs = false
+  let values = []
   let newHand = []
   if (determinePair(hand).pair) {
+    values.push(determinePair(hand).value)
     newHand = determinePair(hand).remaining
     if (determinePair(newHand).pair) {
+      values.push(determinePair(newHand).value)
       twoPairs = true
     }
   }
   return {
-    twoPairs: twoPairs
+    twoPairs: twoPairs,
+    values: values
   }
 }
