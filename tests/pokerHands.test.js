@@ -86,4 +86,16 @@ describe('Different Poker hands', function () {
   it('should return the remaining cards of the three of a kind', function () {
     expect(determineNumberOfKind(threeKindHand, 3).remaining).toEqual([threeKindCard3, threeKindCard5])
   })
+
+  // Straight Hand tests
+  // Sample hand for a Straight
+  it('should determine if the hand is a straight', function () {
+    let straightCard1 = Card('2C')
+    let straightCard2 = Card('3H')
+    let straightCard3 = Card('5H')
+    let straightCard4 = Card('6S')
+    let straightCard5 = Card('4D')
+    let straightHand = [straightCard1, straightCard2, straightCard3, straightCard4, straightCard5]
+    expect(determineStraight(straightHand)).toBe(true)
+  })
 })
