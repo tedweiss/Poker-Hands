@@ -78,6 +78,6 @@ describe('Different Poker hands', function () {
   let threeKindHand = [threeKindCard1, threeKindCard2, threeKindCard3, threeKindCard4, threeKindCard5]
 
   it('should determine if the hand has three of a kind', function () {
-    expect(determineThreeKind(threeKindHand).threeKind).toBe(true)
+    expect(determineThreeKind(threeKindHand, 3).match).toBe(true)
   })
 })

@@ -92,3 +92,33 @@ const determineTwoPairs = hand => {
     }
   }
 }
+
+const determineThreeKind = (hand, howManyToMatch) => {
+  let match = false
+  let matchValueCheck = 0
+  let matchValue
+  let matchedCards = []
+  let remainingCards = []
+  hand = hand.sort((a, b) => {
+    return a.value - b.value
+  })
+  hand.map(card => {
+    if (card.value === matchValueCheck) {
+      matchValue = card.value
+    }
+    matchValueCheck = card.value
+  })
+  hand.map(card => {
+    if (card.value === matchValue) {
+      matchedCards.push(card)
+    } else {
+      remainingCards.push(card)
+    }
+    if (howManyToMatch === matchedCards.length) {
+      match = true
+    }
+  })
+  return {
+    match: match
+  }
+}
