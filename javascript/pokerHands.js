@@ -119,6 +119,7 @@ const determineThreeKind = (hand, howManyToMatch) => {
     }
   })
   return {
-    match: match
+    match: match,
+    value: matchValue
   }
 }
