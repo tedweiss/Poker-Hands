@@ -40,13 +40,13 @@ describe('Different Poker hands', function () {
   let pairHand = [pairCard1, pairCard2, pairCard3, pairCard4, pairCard5]
 
   it('should determine if the hand has a pair', function () {
-    expect(determinePair(pairHand).pair).toBe(true)
+    expect(determineNumberOfKind(pairHand, 2).match).toBe(true)
   })
   it('should state the value of the pair', function () {
-    expect(determinePair(pairHand).value).toBe(7)
+    expect(determineNumberOfKind(pairHand, 2).value).toBe(7)
   })
   it('should return the remaining cards', function () {
-    expect(determinePair(pairHand).remaining).toEqual([pairCard3, pairCard1, pairCard5])
+    expect(determineNumberOfKind(pairHand, 2).remaining).toEqual([pairCard3, pairCard1, pairCard5])
   })
 
   // 2 Pairs Hand tests
