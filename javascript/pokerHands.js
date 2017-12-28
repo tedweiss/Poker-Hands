@@ -93,7 +93,7 @@ const determineTwoPairs = hand => {
   }
 }
 
-const determineThreeKind = (hand, howManyToMatch) => {
+const determineNumberOfKind = (hand, howManyToMatch) => {
   let match = false
   let matchValueCheck = 0
   let matchValue
