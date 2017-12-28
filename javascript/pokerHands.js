@@ -41,33 +41,6 @@ const findHighCard = hand => {
   return highCard.name
 }
 
-const determinePair = hand => {
-  let pair = false
-  let pairValueCheck = 0
-  let pairValue
-  let remainingCards = []
-  hand = hand.sort((a, b) => {
-    return a.value - b.value
-  })
-  hand.map(card => {
-    if (card.value === pairValueCheck) {
-      pair = true
-      pairValue = card.value
-    }
-    pairValueCheck = card.value
-  })
-  hand.map(card => {
-    if (card.value !== pairValue) {
-      remainingCards.push(card)
-    }
-  })
-  return {
-    pair: pair,
-    value: pairValue,
-    remaining: remainingCards
-  }
-}
-
 const determineTwoPairs = hand => {
   let twoPairs = false
   let values = []
@@ -123,4 +96,31 @@ const determineNumberOfKind = (hand, howManyToMatch) => {
     value: matchValue,
     remaining: remainingCards
   }
+}
+
+const determineStraight = hand => {
+  let straight = true
+  let orderedHand
+  let startStraight
+  let straightArray = []
+
+  // Order the hand from least to greatest
+  orderedHand = hand.sort((a, b) => {
+    return a.value - b.value
+  })
+
+  // Create a straight array to compare the hand to
+  startStraight = orderedHand[0].value
+  for (var i = startStraight; i < startStraight + 5; i++) {
+    straightArray.push(i)
+  }
+
+  // Compare hand and straight array
+  orderedHand.map((card, idx) => {
+    if (card.value !== straightArray[idx]) {
+      straight = false
+    }
+  })
+
+  return straight
 }
