@@ -80,4 +80,7 @@ describe('Different Poker hands', function () {
   it('should determine if the hand has three of a kind', function () {
     expect(determineThreeKind(threeKindHand, 3).match).toBe(true)
   })
+  it('should state the value of the three of a kind', function () {
+    expect(determineThreeKind(threeKindHand, 3).value).toBe(12)
+  })
 })
