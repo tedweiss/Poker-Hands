@@ -98,4 +98,16 @@ describe('Different Poker hands', function () {
     let straightHand = [straightCard1, straightCard2, straightCard3, straightCard4, straightCard5]
     expect(determineStraight(straightHand)).toBe(true)
   })
+
+  // Flush Hand tests
+  // Sample hand for a Flush
+  it('should determine if the hand is a flush', function () {
+    let flushCard1 = Card('JD')
+    let flushCard2 = Card('3D')
+    let flushCard3 = Card('KD')
+    let flushCard4 = Card('6D')
+    let flushCard5 = Card('AD')
+    let flushHand = [flushCard1, flushCard2, flushCard3, flushCard4, flushCard5]
+    expect(determineFlush(flushHand)).toBe(true)
+  })
 })
