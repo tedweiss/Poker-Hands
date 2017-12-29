@@ -132,3 +132,17 @@ const determineStraight = hand => {
   })
   return straight
 }
+
+const determineFlush = hand => {
+  let flush = true
+  let flushSuit
+  // Sets a suit to be matched
+  flushSuit = hand[0].suit
+  // Checks that all cards are the same suit
+  hand.map(card => {
+    if (card.suit !== flushSuit) {
+      flush = false
+    }
+  })
+  return flush
+}
