@@ -9,10 +9,12 @@ const makeCardDeck = () => {
   })
   return deck
 }
+
 const Card = card => {
   let cardArray = card.split('')
   let suit = cardArray[1]
   let value = parseInt(cardArray[0])
+  // Value is a letter, switch to a number
   if (isNaN(value)) {
     let faceValues = {
       T: 10,
@@ -30,7 +32,7 @@ const Card = card => {
   }
 }
 
-// Poker Hands
+// *** Poker Hands ***
 const findHighCard = hand => {
   let highCard = { value: 0 }
   hand.forEach(card => {
@@ -46,14 +48,20 @@ const determineTwoPairs = hand => {
   let values = []
   let newHand = []
   let remainingCards = []
+  // There is a pair
   if (determineNumberOfKind(hand, 2).match) {
+    // Value of first pair
     values.push(determineNumberOfKind(hand, 2).value)
+    // Remaining cards to be used to check for a second pair
     newHand = determineNumberOfKind(hand, 2).remaining
+    // There is a second pair
     if (determineNumberOfKind(newHand, 2).match) {
+      // Value of second pair
       values.push(determineNumberOfKind(newHand, 2).value)
       twoPairs = true
     }
     hand.map(card => {
+      // Set the remaining card
       if (card.value !== values[0] && card.value !== values[1]) {
         remainingCards.push(card)
       }
@@ -72,21 +80,25 @@ const determineNumberOfKind = (hand, howManyToMatch) => {
   let matchValue
   let matchedCards = []
   let remainingCards = []
+  // Order the hand from least to greatest
   hand = hand.sort((a, b) => {
     return a.value - b.value
   })
+  // Sets the value to be matched as most of a kind
   hand.map(card => {
     if (card.value === matchValueCheck) {
       matchValue = card.value
     }
     matchValueCheck = card.value
   })
+  // Sort hand into matched or remaining arrays
   hand.map(card => {
     if (card.value === matchValue) {
       matchedCards.push(card)
     } else {
       remainingCards.push(card)
     }
+    // Check that the number of matched kind has been reached
     if (howManyToMatch === matchedCards.length) {
       match = true
     }
@@ -103,24 +115,20 @@ const determineStraight = hand => {
   let orderedHand
   let startStraight
   let straightArray = []
-
   // Order the hand from least to greatest
   orderedHand = hand.sort((a, b) => {
     return a.value - b.value
   })
-
   // Create a straight array to compare the hand to
   startStraight = orderedHand[0].value
   for (var i = startStraight; i < startStraight + 5; i++) {
     straightArray.push(i)
   }
-
   // Compare hand and straight array
   orderedHand.map((card, idx) => {
     if (card.value !== straightArray[idx]) {
       straight = false
     }
   })
-
   return straight
 }
