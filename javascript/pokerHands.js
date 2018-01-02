@@ -155,3 +155,11 @@ const determineFullHouse = hand => {
   }
   return fullHouse
 }
+
+const determineStraightFlush = hand => {
+  let straightFlush = false
+  if (determineFlush(hand) && determineStraight(hand)) {
+    straightFlush = true
+  }
+  return straightFlush
+}
