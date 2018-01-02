@@ -163,3 +163,11 @@ const determineStraightFlush = hand => {
   }
   return straightFlush
 }
+
+const determineRoyalFlush = hand => {
+  let royalFlush = false
+  if (determineStraightFlush(hand) && hand[0].value === 10) {
+    royalFlush = true
+  }
+  return royalFlush
+}
