@@ -138,4 +138,7 @@ describe('Different Poker hands', function () {
   it('should state the value of the four of a kind', function () {
     expect(determineNumberOfKind(fourKindHand, 4).value).toBe(4)
   })
+  it('should return the remaining card of the four of a kind', function () {
+    expect(determineNumberOfKind(fourKindHand, 4).remaining).toEqual([fourKindCard5])
+  })
 })
