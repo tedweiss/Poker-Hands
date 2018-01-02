@@ -154,4 +154,16 @@ describe('Different Poker hands', function () {
     let straightFlushHand = [straightFlushCard1, straightFlushCard2, straightFlushCard3, straightFlushCard4, straightFlushCard5]
     expect(determineStraightFlush(straightFlushHand)).toBe(true)
   })
+
+  // Royal Flush Hand tests
+  // Sample hand for a Royal Flush
+  it('should determine if the hand is a royal flush', function () {
+    let royalFlushCard1 = Card('KD')
+    let royalFlushCard2 = Card('AD')
+    let royalFlushCard3 = Card('JD')
+    let royalFlushCard4 = Card('TD')
+    let royalFlushCard5 = Card('QD')
+    let royalFlushHand = [royalFlushCard1, royalFlushCard2, royalFlushCard3, royalFlushCard4, royalFlushCard5]
+    expect(determineRoyalFlush(royalFlushHand)).toBe(true)
+  })
 })
