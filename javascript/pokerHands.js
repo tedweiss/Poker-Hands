@@ -150,10 +150,7 @@ const determineFlush = hand => {
 const determineFullHouse = hand => {
   let fullHouse = false
   // Two pairs and no remaining cards
-  if (
-    determineTwoPairs(hand).twoPairs &&
-    determineTwoPairs(hand).remaining.length === 0
-  ) {
+  if (determineTwoPairs(hand).twoPairs && determineTwoPairs(hand).remaining.length === 0) {
     fullHouse = true
   }
   return fullHouse

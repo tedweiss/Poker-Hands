@@ -142,4 +142,16 @@ describe('Different Poker hands', function () {
   it('should return the remaining card of the four of a kind', function () {
     expect(determineNumberOfKind(fourKindHand, 4).remaining).toEqual([fourKindCard5])
   })
+
+  // Stright Flush Hand tests
+  // Sample hand for a Straight Flush
+  it('should determine if the hand is a flush', function () {
+    let straightFlushCard1 = Card('2D')
+    let straightFlushCard2 = Card('3D')
+    let straightFlushCard3 = Card('4D')
+    let straightFlushCard4 = Card('5D')
+    let straightFlushCard5 = Card('6D')
+    let straightFlushHand = [straightFlushCard1, straightFlushCard2, straightFlushCard3, straightFlushCard4, straightFlushCard5]
+    expect(determineStraightFlush(straightFlushHand)).toBe(true)
+  })
 })
