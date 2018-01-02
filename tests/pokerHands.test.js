@@ -119,7 +119,20 @@ describe('Different Poker hands', function () {
   let fullHouseCard5 = Card('TC')
   let fullHouseHand = [fullHouseCard1, fullHouseCard2, fullHouseCard3, fullHouseCard4, fullHouseCard5]
 
-  it('should determine if the hand has three of a kind', function () {
+  it('should determine if the hand is a full house', function () {
     expect(determineFullHouse(fullHouseHand)).toBe(true)
+  })
+
+  // Four of a Kind Hand tests
+  // Sample hand for Four of a Kind Hand
+  let fourKindCard1 = Card('4S')
+  let fourKindCard2 = Card('4H')
+  let fourKindCard3 = Card('4D')
+  let fourKindCard4 = Card('4C')
+  let fourKindCard5 = Card('8C')
+  let fourKindHand = [fourKindCard1, fourKindCard2, fourKindCard3, fourKindCard4, fourKindCard5]
+
+  it('should determine if the hand has four of a kind', function () {
+    expect(determineNumberOfKind(fourKindHand, 4).match).toBe(true)
   })
 })
