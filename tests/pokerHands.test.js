@@ -110,4 +110,16 @@ describe('Different Poker hands', function () {
     let flushHand = [flushCard1, flushCard2, flushCard3, flushCard4, flushCard5]
     expect(determineFlush(flushHand)).toBe(true)
   })
+  // Three of a Kind Hand tests
+  // Sample hand for Three of a Kind Hand
+  let fullHouseCard1 = Card('7S')
+  let fullHouseCard2 = Card('7H')
+  let fullHouseCard3 = Card('TD')
+  let fullHouseCard4 = Card('7C')
+  let fullHouseCard5 = Card('TC')
+  let fullHouseHand = [fullHouseCard1, fullHouseCard2, fullHouseCard3, fullHouseCard4, fullHouseCard5]
+
+  it('should determine if the hand has three of a kind', function () {
+    expect(determineFullHouse(fullHouseHand)).toBe(true)
+  })
 })
